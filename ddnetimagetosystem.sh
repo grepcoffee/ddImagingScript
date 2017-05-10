@@ -6,6 +6,7 @@
 TMPDIR="/tmp/images"
 echo "System Imaging Script"
 echo -e "Mounting Local Drive ${DISK}..."
+#zeros out the drive. Asks what system your running gives you a list of disks so you can pick which one to wipe. 
 while true; do
     read -p "Are you Running a Mac?" yn
     case $yn in
@@ -19,6 +20,7 @@ echo "##########################################################################
 echo "Type the disk name, followed by [ENTER]: ex.(disk2)"
 read disk
 echo "################################################################################################"
+#gives you a choice between urandom and zero. Pick based on scenario. 
 echo "Would you like to wipe your drive using "urandom" or "zero"? Please type and press [ENTER]:"
 read wpefrm
 sudo dd if=/dev/$wpefrm of=/dev/$disk
